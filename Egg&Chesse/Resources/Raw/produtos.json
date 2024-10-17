@@ -1,0 +1,140 @@
+{
+  "Produtos": [
+    {
+      "Id": 1,
+      "NomeDoProduto": "Lanche café da manha com queijo e ovos.",
+      "Categoria": "Lanches",
+      "Tempo": "01-04 Minutos",
+      "Imagem": "ovocomqueijo.svg",
+      "Chef": {
+        "Nome": "Rodrigo bezerra",
+        "Descricao": "Chef com ampla experiência, Rodrigo Bezerra combina técnicas modernas e ingredientes . ",
+        "Id": 1
+      },
+      "Descricao": "Delicioso lanche para o café da manhã, composto por ovos frescos e queijo derretido, preparado em poucos minutos. Perfeito para começar o dia com energia.",
+      "ListaDeIngredientes": [
+        {
+          "Id": 1,
+          "Nome": "Ovos",
+          "Imagem": "ovo.svg"
+        },
+        {
+          "Id": 2,
+          "Nome": "Queijo",
+          "Imagem": "queijo.svg"
+        },
+        {
+          "Id": 3,
+          "Nome": "Pão",
+          "Imagem": "pao.svg"
+        },
+        {
+          "Id": 4,
+          "Nome": "Ovos",
+          "Imagem": "ovo.svg"
+        },
+        {
+          "Id": 5,
+          "Nome": "Queijo",
+          "Imagem": "queijo.svg"
+        },
+        {
+          "Id": 6,
+          "Nome": "Pão",
+          "Imagem": "pao.svg"
+        }
+      ]
+    },
+    {
+      "Id": 2,
+      "NomeDoProduto": "Lanche com ovos mexidos.",
+      "Categoria": "Lanches",
+      "Tempo": "05-10 Minutos",
+      "Imagem": "ovosmexidos.svg",
+      "Descricao": "Ovos mexidos com uma textura cremosa e sabor irresistível, perfeito para uma refeição rápida e nutritiva. Ideal para quem está com pressa.",
+      "Chef": {
+        "Nome": "Rodrigo bezerra",
+        "Descricao": "Chef com ampla experiência, Rodrigo Bezerra combina técnicas modernas e ingredientes . ",
+        "Id": 1
+      },
+      "ListaDeIngredientes": [
+        {
+          "Id": 1,
+          "Nome": "Ovos",
+          "Imagem": "ovo.svg"
+        },
+        {
+          "Id": 2,
+          "Nome": "Manteiga",
+          "Imagem": "manteiga.svg"
+        },
+        {
+          "Id": 3,
+          "Nome": "Cebolinha",
+          "Imagem": "cebolinha.svg"
+        }
+      ]
+    },
+    {
+      "Id": 3,
+      "NomeDoProduto": "Macarrão com Queijo no Café da Manhã",
+      "Categoria": "Nossos Pratos",
+      "Tempo": "15-20 Minutos",
+      "Imagem": "macarrao.svg",
+      "Descricao": "Uma refeição reconfortante e cremosa de macarrão com queijo, especialmente preparada para o café da manhã. Um toque especial para o início do seu dia.",
+      "Chef": {
+        "Nome": "Rodrigo bezerra",
+        "Descricao": "Chef com ampla experiência, Rodrigo Bezerra combina técnicas modernas e ingredientes . ",
+        "Id": 1
+
+      },
+      "ListaDeIngredientes": [
+        {
+          "Id": 1,
+          "Nome": "Macarrão",
+          "Imagem": "macarrao.svg"
+        },
+        {
+          "Id": 2,
+          "Nome": "Queijo",
+          "Imagem": "queijo.svg"
+        },
+        {
+          "Id": 3,
+          "Nome": "Leite",
+          "Imagem": "leite.svg"
+        }
+      ]
+    },
+    {
+      "Id": 4,
+      "NomeDoProduto": "Ovo e queijo na caneca!",
+      "Categoria": "Café da manha",
+      "Tempo": "01-03 Minutos",
+      "Imagem": "ovoqueijonacaneca.svg",
+      "Descricao": "Receita prática e deliciosa de ovo e queijo preparados diretamente na caneca. Simples, rápido e muito saboroso, ideal para um café da manhã rápido.",
+      "Chef": {
+        "Nome": "Rodrigo bezerra",
+        "Descricao": "Chef com ampla experiência, Rodrigo Bezerra combina técnicas modernas e ingredientes . ",
+        "Id": 1
+      },
+      "ListaDeIngredientes": [
+        {
+          "Id": 1,
+          "Nome": "Ovos",
+          "Imagem": "ovo.svg"
+        },
+        {
+          "Id": 2,
+          "Nome": "Queijo",
+          "Imagem": "queijo.svg"
+        },
+        {
+          "Id": 3,
+          "Nome": "Sal",
+          "Imagem": "sal.svg"
+        }
+      ]
+    }
+  ]
+}

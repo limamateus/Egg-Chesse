@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:paginasBemVindo="clr-namespace:Egg_Chesse.Paginas.PaginaInicial.BemVindo"
+             xmlns:paginaDethalesProduto ="clr-namespace:Egg_Chesse.Paginas.Produto"
+             x:Class="Egg_Chesse.Paginas.PaginaInicial.PaginaInicial"
+             Title="PaginaInicial"
+             Shell.FlyoutBehavior="Flyout"   
+             Shell.PresentationMode="Modal"
+           
+       >
+
+
+    <Shell.FlyoutHeader >
+        <StackLayout >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition  />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <HorizontalStackLayout Grid.Row="0" HorizontalOptions="Start" VerticalOptions="Start" Margin="10">
+                    <Border StrokeShape="RoundRectangle 40" >
+                        <Image Source="vitor.svg" WidthRequest="59" HeightRequest="59" />
+                    </Border>                                         
+                </HorizontalStackLayout>
+              
+                    <Image Source="fundomenuretangualar.svg" WidthRequest="190" HeightRequest="100" Grid.Row="0"  HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,-20,0" />
+                    <Button
+                        Text="Fechar"
+                        ImageSource="voltar.svg"
+                        
+                        TextColor="White"
+                        FontSize="12"
+                        HorizontalOptions="End"
+                        VerticalOptions="Start"
+                        Grid.Row="0"
+                        BorderColor="White"
+                        
+                        />
+            
+
+                <VerticalStackLayout Grid.Row="1" Margin="20,-15,0,0" >
+                    <Label 
+                        x:Name="LbName"
+                        Text="Vitor Zaretzki de Souza"
+                        TextColor="Black"
+                        FontSize="18"
+                        />
+
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="2"  Margin="20,0,0,10">
+                    <Label
+                             x:Name="LbTipoDeUsuario"
+                             Text="Cliente"
+                             TextColor="{StaticResource Cinza5}"
+                             FontSize="16"
+                        />
+                </VerticalStackLayout>
+                
+            </Grid>
+        </StackLayout>
+    </Shell.FlyoutHeader>
+    
+    
+    <FlyoutItem Title="Home" FlyoutIcon="home.svg">
+        <ShellContent ContentTemplate="{DataTemplate paginasBemVindo:BemVindo}" />
+    </FlyoutItem>
+    <MenuItem  Text="Notificações" IconImageSource="sino.svg">
+        
+    </MenuItem>
+
+    <MenuItem  Text="Novidades" IconImageSource="novidade.svg">
+
+    </MenuItem>
+
+    <MenuItem  Text="Perfil" IconImageSource="iconeperfil.svg">
+
+    </MenuItem>
+
+
+
+    <!--<ShellContent>
+        --><!-- Páginas de conteudo --><!--
+
+        <paginasBemVindo:BemVindo />
+
+
+    </ShellContent>-->
+
+
+
+
+
+</Shell>

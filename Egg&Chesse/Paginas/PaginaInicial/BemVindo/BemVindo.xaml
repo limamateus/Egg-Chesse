@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Egg_Chesse.Paginas.PaginaInicial.BemVindo.BemVindo"
+             Title="Bem Vindo Mateus"
+             BackgroundImageSource="fundoapp.svg"
+             
+             >
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="Transparent" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+
+        <Style TargetType="Border">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                Value="Gray" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+
+
+
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.1*" />
+            <RowDefinition Height="0.5*" />
+        </Grid.RowDefinitions>
+         <!--#region Grid 0  Propaganda-->
+        <HorizontalStackLayout   
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            
+            >
+
+            <Grid RowSpacing="1">
+                <Grid.RowDefinitions >
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <!--CarouselView para mostrar as imagens-->
+
+                <CarouselView x:Name="carousel"
+                             ItemsSource="{Binding Items}"
+                             IndicatorView="indicatorView"
+                             VerticalScrollBarVisibility="Always"
+                             EmptyView="2"
+                             HeightRequest="300" 
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                           
+                          >
+
+
+                    <!--Template do item, define a estrutura das imagens do carrossel-->
+
+                    <CarouselView.ItemTemplate >
+                        <DataTemplate>
+                            <StackLayout  VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="0">
+                                <Image Source="{Binding Imagem}"
+                                     Aspect="AspectFill"
+                                     HeightRequest="148"
+                                     WidthRequest="363"
+                                   
+                                   />
+
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+
+                <!--IndicatorView para mostrar as bolinhas de navegação-->
+
+                <IndicatorView
+                  Grid.Row="1"
+                   x:Name="indicatorView"
+                   IndicatorColor="{StaticResource Cinza3}"
+                  SelectedIndicatorColor="{StaticResource Primary}"
+                  IndicatorsShape="Circle"
+                   HorizontalOptions="Center"
+                  VerticalOptions="End" 
+                   IndicatorSize="15"
+                
+                />
+
+            </Grid>
+        </HorizontalStackLayout>
+                  <!--#endregion-->
+         <!--#region  Grid 1 Botões de Categorias-->
+        <Grid Margin="20" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Start">
+            <CollectionView
+                    x:Name="CVbotoes"
+                    ItemsSource="{Binding botaos}"
+                    SelectionMode="Single"
+                    BackgroundColor="Transparent"
+                    ItemsLayout="HorizontalList"
+                    Margin="10,10,0,0"
+                    RemainingItemsThreshold="-1"      
+                    SelectionChanged="carouselBotoes_SelectionChanged">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid HeightRequest="150" WidthRequest="150" >
+                            <!-- Removido o WidthRequest para adaptar ao conteúdo -->
+                            <!-- O Border vai ter sua cor alterada com base na seleção -->
+                            <Border 
+                                 Background="{StaticResource Cinza3}"
+                                 StrokeShape="RoundRectangle 20" 
+                                  Margin="10,0,0,0"
+                                 HorizontalOptions="Fill"
+                                    VerticalOptions="Center"
+                          >
+
+                                <Border.Stroke>
+                                    <Binding Path="BorderColor" />
+                                    <!-- Ligação da propriedade BorderColor -->
+                                </Border.Stroke>
+
+                                <Label Text="{Binding Titulo}" 
+                                       TextColor="{StaticResource Cinza7}" 
+                                       FontSize="16" 
+                                       BackgroundColor="{StaticResource Cinza3}" 
+                                       Margin="2"  
+                                       VerticalOptions="Center" 
+                                       HorizontalOptions="Center" 
+                                       HorizontalTextAlignment="Center" 
+                                       VerticalTextAlignment="Center"
+                                 
+                                    LineBreakMode="WordWrap">     
+                                  
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label"
+                                             Binding="{Binding Selecionado}"
+                                             Value="True">
+                                            <Setter Property="Background" Value="{StaticResource Primary}" />
+                                            <Setter Property="TextColor" Value="{StaticResource White}" />                                               
+                                            <Setter Property="LineBreakMode" Value="WordWrap"/>
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+
+                                <Border.Triggers>
+                                    <DataTrigger TargetType="Border"  
+                                         Binding="{Binding Selecionado}"  
+                                         Value="True">
+                                        <Setter Property="Background" Value="{StaticResource Primary}" />
+                                    </DataTrigger>
+                                </Border.Triggers>
+
+                            </Border>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+           <!--#endregion-->
+         <!--#region Grid 2 Lista de Itens-->
+        <ScrollView Grid.Row="2" Margin="20" Padding="10" Opacity="2" >
+            <CollectionView
+                x:Name="CVProdutos"
+                SelectionMode="Single"
+                BackgroundColor="Transparent"
+                ItemsSource="{Binding Produtos}"
+                SelectionChanged="CVProdutos_SelectionChanged"
+                
+                
+                >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BackgroundColor="White" Margin="5"  StrokeShape="RoundRectangle 10"  Stroke="Gray" >
+
+                            <Border.Shadow >
+                                <Shadow  Radius="10" Brush="Gray" Opacity="2" Offset="50,10" />
+                            </Border.Shadow>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.3*" />
+                                    <ColumnDefinition Width="0.7*" />
+                                </Grid.ColumnDefinitions>
+
+                                <VerticalStackLayout  Grid.Column="0" Margin="10">
+                                    <Image Source="{Binding Imagem}" WidthRequest="79" HeightRequest="79"  MaximumHeightRequest="79" MaximumWidthRequest="79"  />
+                                </VerticalStackLayout>
+
+                                <VerticalStackLayout Grid.Column="1" Margin="10" Spacing="10">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition  />
+                                            <RowDefinition  />
+                                        </Grid.RowDefinitions>
+                                        <VerticalStackLayout Grid.Row="0" VerticalOptions="Start" HorizontalOptions="Start">
+                                             <Label 
+                                            Text="{Binding NomeDoProduto}"
+                                            FontSize="16"
+                                            FontAttributes="Bold"
+                                            LineBreakMode="WordWrap" 
+                                            Grid.Row="0"
+                                            TextColor="{StaticResource Cinza10}"
+                                            />
+                                        </VerticalStackLayout>
+
+                                        <VerticalStackLayout
+                                            Grid.Row="1"
+                                            Margin="1,10,0,0"
+                                            VerticalOptions="Center" 
+                                            HorizontalOptions="Start">
+                                                <Label
+                                            Text="{Binding Categoria}"
+                                            FontSize="12"
+                                            TextColor="{StaticResource Cinza3}"
+                                            LineBreakMode="WordWrap" 
+                                           
+                                            />
+                                        </VerticalStackLayout>          
+                                       
+
+                                        <VerticalStackLayout HorizontalOptions="End" Grid.Row="2" VerticalOptions="End"  >
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition />                                                      
+                                                </Grid.ColumnDefinitions> 
+                                                <Label
+                                                    Text="{Binding Tempo}"
+                                                    FontSize="12"
+                                                    TextColor="{StaticResource Cinza9}"
+                                                    Grid.Column="0"
+                                                    LineBreakMode="TailTruncation"
+                                                    HorizontalOptions="End"
+                                                    VerticalOptions="Center"
+                                                    Margin="0,0,1,0"
+                                                    />
+
+                                                <Image 
+                                                    Source="relogio.svg" 
+                                                    WidthRequest="24"
+                                                    HeightRequest="24" 
+                                                    Grid.Column="1"
+                                                     HorizontalOptions="End"
+                                                    VerticalOptions="End"
+                                                    />
+
+
+                                            </Grid>
+                                           
+
+                                        </VerticalStackLayout>
+
+                                    </Grid>
+                                </VerticalStackLayout>
+
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
+        </ScrollView>
+         <!--#endregion-->
+    </Grid>
+
+</ContentPage>
